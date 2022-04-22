@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://daihaojun554.github.io/2022/04/23/Ajax%E8%AF%B7%E6%B1%82/</loc>
+    
+    <lastmod>2022-04-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://daihaojun554.github.io/2022/04/21/HiveDemo/</loc>
     
     <lastmod>2022-04-22</lastmod>
@@ -92,6 +101,13 @@
 
   
   <url>
+    <loc>http://daihaojun554.github.io/tags/ajax/</loc>
+    <lastmod>2022-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://daihaojun554.github.io/tags/Hive/</loc>
     <lastmod>2022-04-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -106,7 +122,7 @@
   </url>
   
   <url>
-    <loc>http://daihaojun554.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <loc>http://daihaojun554.github.io/tags/Spring/</loc>
     <lastmod>2022-04-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -120,14 +136,14 @@
   </url>
   
   <url>
-    <loc>http://daihaojun554.github.io/tags/Mybatis/</loc>
+    <loc>http://daihaojun554.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2022-04-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://daihaojun554.github.io/tags/Spring/</loc>
+    <loc>http://daihaojun554.github.io/tags/Mybatis/</loc>
     <lastmod>2022-04-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

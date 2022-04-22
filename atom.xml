@@ -6,7 +6,7 @@
   <link href="http://daihaojun554.github.io/atom.xml" rel="self"/>
   
   <link href="http://daihaojun554.github.io/"/>
-  <updated>2022-04-22T15:48:43.357Z</updated>
+  <updated>2022-04-22T16:19:40.679Z</updated>
   <id>http://daihaojun554.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ajax请求</title>
+    <link href="http://daihaojun554.github.io/2022/04/23/Ajax%E8%AF%B7%E6%B1%82/"/>
+    <id>http://daihaojun554.github.io/2022/04/23/Ajax%E8%AF%B7%E6%B1%82/</id>
+    <published>2022-04-22T23:50:03.000Z</published>
+    <updated>2022-04-22T16:19:40.679Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Ajax请求："><a href="#Ajax请求：" class="headerlink" title="Ajax请求："></a>Ajax请求：</h1><h2 id="1、url参数"><a href="#1、url参数" class="headerlink" title="1、url参数"></a>1、url参数</h2><p>具体就是你的请求的地址，你需要向哪里发请求 sting类型</p><h2 id="2、type参数"><a href="#2、type参数" class="headerlink" title="2、type参数"></a>2、type参数</h2><p>就是你请求的类型 post还是get还是其他的某种 string类型</p><h2 id="3、data参数："><a href="#3、data参数：" class="headerlink" title="3、data参数："></a>3、data参数：</h2><p>是你在请求行中的带的参数 以？的形式传的参 是个列表**{key:value}**</p><p>这里的参数你可以通过后端的 **<code>req.getParameter(&quot;key&quot;)</code>**来获取</p><h2 id="4、success参数："><a href="#4、success参数：" class="headerlink" title="4、success参数："></a>4、success参数：</h2><p>请求成功后的操作，是个方法，方法里可以带参数，可以是从服务器中返回的数据</p><h2 id="5、error参数："><a href="#5、error参数：" class="headerlink" title="5、error参数："></a>5、error参数：</h2><p>请求失败后的操作，是个方法，里面可以有三个参数</p><p> 即:</p><ul><li>XMLHttpRequest对象，</li><li>错误信息</li><li>捕获的错误对象</li></ul><h2 id="6、contentType参数："><a href="#6、contentType参数：" class="headerlink" title="6、contentType参数："></a>6、contentType参数：</h2><p>给响应头里的类型设置值  </p><p>例如这种：</p><p><img src="/2022/04/23/Ajax%E8%AF%B7%E6%B1%82/image-20220423001027716.png" alt="image-20220423001027716"></p><h2 id="7、datatype参数："><a href="#7、datatype参数：" class="headerlink" title="7、datatype参数："></a>7、datatype参数：</h2><p>从服务器中返回来的数据的类型</p><p>有”json”,”text”,”xml”,”html”等等</p><h2 id="8、BeforSend参数："><a href="#8、BeforSend参数：" class="headerlink" title="8、BeforSend参数："></a>8、BeforSend参数：</h2><p>要求为function类型 用于在向服务器发送请求前添加一些处理函数。</p><p>这是一个ajax事件，在ajax请求开始之前就被触发，通常允许用户修改XMLHttpRequest对象（比如说设置附加的头部信息）如token</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">    <span class="comment">//这里的参数有</span></span><br><span class="line">    <span class="attr">url</span>:<span class="string">&quot;http://localhost:8080/demo/testController&quot;</span>,</span><br><span class="line">    <span class="attr">type</span>:<span class="string">&quot;GET&quot;</span>or<span class="string">&quot;POST&quot;</span>,</span><br><span class="line">    <span class="attr">data</span>:&#123;<span class="string">&quot;key&quot;</span>:value&#125;,</span><br><span class="line">    <span class="attr">success</span>:<span class="keyword">function</span>(<span class="params">result,textStatus</span>)&#123;</span><br><span class="line">    <span class="comment">//这里的result是从服务器中获取的数据，具体是从controller层返回的</span></span><br><span class="line">    <span class="comment">//textStatus是描述状态的信息码</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">error</span>:<span class="keyword">function</span>(<span class="params">XMLHttpRequest,XMLHttpRequest,errorThrown</span>)&#123;&#125;,</span><br><span class="line"><span class="attr">contentType</span>:<span class="string">&quot;application/x-www-form-urlencoded&quot;</span>,</span><br><span class="line">    <span class="attr">datatype</span>:<span class="string">&quot;json&quot;</span> </span><br><span class="line"><span class="attr">beforeSend</span>: <span class="keyword">function</span> (<span class="params">XMLHttpRequest</span>) &#123;</span><br><span class="line">                <span class="title class_">XMLHttpRequest</span>.<span class="title function_">setRequestHeader</span>(<span class="string">&quot;token&quot;</span>, <span class="string">&quot;eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOD.....&quot;</span>);</span><br><span class="line">            &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Ajax请求：&quot;&gt;&lt;a href=&quot;#Ajax请求：&quot; class=&quot;headerlink&quot; title=&quot;Ajax请求：&quot;&gt;&lt;/a&gt;Ajax请求：&lt;/h1&gt;&lt;h2 id=&quot;1、url参数&quot;&gt;&lt;a href=&quot;#1、url参数&quot; class=&quot;headerlink</summary>
+      
+    
+    
+    
+    
+    <category term="ajax" scheme="http://daihaojun554.github.io/tags/ajax/"/>
+    
+  </entry>
   
   <entry>
     <title>HiveDemo</title>
@@ -61,9 +83,9 @@
     
     
     
-    <category term="框架" scheme="http://daihaojun554.github.io/tags/%E6%A1%86%E6%9E%B6/"/>
-    
     <category term="Spring" scheme="http://daihaojun554.github.io/tags/Spring/"/>
+    
+    <category term="框架" scheme="http://daihaojun554.github.io/tags/%E6%A1%86%E6%9E%B6/"/>
     
   </entry>
   
@@ -88,9 +110,9 @@
     
     
     
-    <category term="数据库" scheme="http://daihaojun554.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
     <category term="框架" scheme="http://daihaojun554.github.io/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+    <category term="数据库" scheme="http://daihaojun554.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     <category term="Mybatis" scheme="http://daihaojun554.github.io/tags/Mybatis/"/>
     
