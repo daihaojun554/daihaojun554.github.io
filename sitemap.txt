@@ -1,3 +1,4 @@
+http://daihaojun554.github.io/2022/04/25/vue%E5%88%9D%E8%AF%86/
 http://daihaojun554.github.io/2022/04/21/SpringBoot/
 http://daihaojun554.github.io/2022/04/23/Ajax%E8%AF%B7%E6%B1%82/
 http://daihaojun554.github.io/2022/04/21/HiveDemo/
@@ -17,4 +18,5 @@ http://daihaojun554.github.io/tags/%E6%A1%86%E6%9E%B6/
 http://daihaojun554.github.io/tags/Mybatis/
 http://daihaojun554.github.io/tags/Spring/
 http://daihaojun554.github.io/tags/SpringBoot/
+http://daihaojun554.github.io/tags/vue/
 http://daihaojun554.github.io/tags/SpringMVC/
