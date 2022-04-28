@@ -6,7 +6,7 @@
   <link href="http://daihaojun554.github.io/atom.xml" rel="self"/>
   
   <link href="http://daihaojun554.github.io/"/>
-  <updated>2022-04-28T13:49:48.853Z</updated>
+  <updated>2022-04-28T14:55:35.115Z</updated>
   <id>http://daihaojun554.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SpringBoot开发实用篇</title>
+    <link href="http://daihaojun554.github.io/2022/04/29/SpringBoot%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87/"/>
+    <id>http://daihaojun554.github.io/2022/04/29/SpringBoot%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87/</id>
+    <published>2022-04-28T21:52:12.000Z</published>
+    <updated>2022-04-28T14:55:35.115Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="SpringBoot开发实用篇"><a href="#SpringBoot开发实用篇" class="headerlink" title="SpringBoot开发实用篇"></a>SpringBoot开发实用篇</h1><h1 id="目录："><a href="#目录：" class="headerlink" title="目录："></a>目录：</h1><ul><li>热部署</li><li>配置高级</li><li>测试</li><li>数据层解决方案</li><li>整合第三方技术</li><li>监控</li></ul><h2 id="一、热部署"><a href="#一、热部署" class="headerlink" title="一、热部署"></a>一、热部署</h2><h2 id="1-1、如何添加SpringBoot的热部署"><a href="#1-1、如何添加SpringBoot的热部署" class="headerlink" title="1.1、如何添加SpringBoot的热部署"></a>1.1、如何添加SpringBoot的热部署</h2><p>在pom.xml中加入这个：</p><p><img src="/2022/04/29/SpringBoot%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87/image-20220428220941318.png" alt="image-20220428220941318"></p><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.6.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>激活热部署:ctrl+F9 (build project)</p><p>1．开启开发者工具后启用热部署</p><p>2．使用构建项目操作启动热部署（ Ctrl+F9)</p><p>3．热部署仅仅加载当前开发者自定义开发的资源，不加载jar资源</p><h2 id="1-2、自动启动热部署"><a href="#1-2、自动启动热部署" class="headerlink" title="1.2、自动启动热部署"></a>1.2、自动启动热部署</h2><p><img src="/2022/04/29/SpringBoot%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87/image-20220428222714897.png" alt="image-20220428222714897"></p><p>勾上</p><p>然后ctrl+ alt+ shift +&#x2F;</p><p><img src="/2022/04/29/SpringBoot%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87/image-20220428223310440.png" alt="image-20220428223310440"></p><p><img src="/2022/04/29/SpringBoot%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87/image-20220428223210427.png" alt="image-20220428223210427"></p><p>whenapprunning勾上</p><p>激活方式: ldea失去焦点5秒后启动热部署</p><p>热部署的范围：</p><p>默认不触发重启的目录列表<br>&#x2F;META-INF &#x2F; maven<br>&#x2F;META-INF&#x2F;resources<br>&#x2F;resources<br>&#x2F;static<br>&#x2F;public<br>&#x2F;templates</p><p><img src="/2022/04/29/SpringBoot%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87/image-20220428225317272.png" alt="image-20220428225317272"></p><p>这个就是表示的哪些文件不参与热部署，可以自己配置</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;SpringBoot开发实用篇&quot;&gt;&lt;a href=&quot;#SpringBoot开发实用篇&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot开发实用篇&quot;&gt;&lt;/a&gt;SpringBoot开发实用篇&lt;/h1&gt;&lt;h1 id=&quot;目录：&quot;&gt;&lt;a href=</summary>
+      
+    
+    
+    
+    
+    <category term="SpringBoot" scheme="http://daihaojun554.github.io/tags/SpringBoot/"/>
+    
+    <category term="开发使用篇" scheme="http://daihaojun554.github.io/tags/%E5%BC%80%E5%8F%91%E4%BD%BF%E7%94%A8%E7%AF%87/"/>
+    
+    <category term="整合第三方技术" scheme="http://daihaojun554.github.io/tags/%E6%95%B4%E5%90%88%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>springboot运维篇</title>
