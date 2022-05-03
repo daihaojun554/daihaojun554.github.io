@@ -128,13 +128,6 @@
 
   
   <url>
-    <loc>http://daihaojun554.github.io/tags/ajax/</loc>
-    <lastmod>2022-05-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://daihaojun554.github.io/tags/Hive/</loc>
     <lastmod>2022-05-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -143,6 +136,13 @@
   
   <url>
     <loc>http://daihaojun554.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</loc>
+    <lastmod>2022-05-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://daihaojun554.github.io/tags/ajax/</loc>
     <lastmod>2022-05-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
