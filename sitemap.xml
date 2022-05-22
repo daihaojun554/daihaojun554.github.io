@@ -4,7 +4,7 @@
   <url>
     <loc>http://daihaojun554.github.io/2022/05/21/SpringBoot%E5%8E%9F%E7%90%86%E7%AF%87/</loc>
     
-    <lastmod>2022-05-21</lastmod>
+    <lastmod>2022-05-22</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -158,7 +158,7 @@
   </url>
   
   <url>
-    <loc>http://daihaojun554.github.io/tags/Spring/</loc>
+    <loc>http://daihaojun554.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2022-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -172,13 +172,6 @@
   </url>
   
   <url>
-    <loc>http://daihaojun554.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-    <lastmod>2022-05-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://daihaojun554.github.io/tags/Mybatis/</loc>
     <lastmod>2022-05-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -186,28 +179,14 @@
   </url>
   
   <url>
+    <loc>http://daihaojun554.github.io/tags/Spring/</loc>
+    <lastmod>2022-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://daihaojun554.github.io/tags/SpringBoot/</loc>
-    <lastmod>2022-05-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://daihaojun554.github.io/tags/vue/</loc>
-    <lastmod>2022-05-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://daihaojun554.github.io/tags/springboot/</loc>
-    <lastmod>2022-05-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://daihaojun554.github.io/tags/%E8%BF%90%E7%BB%B4/</loc>
     <lastmod>2022-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -229,6 +208,27 @@
   
   <url>
     <loc>http://daihaojun554.github.io/tags/%E6%95%B4%E5%90%88%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2022-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://daihaojun554.github.io/tags/springboot/</loc>
+    <lastmod>2022-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://daihaojun554.github.io/tags/%E8%BF%90%E7%BB%B4/</loc>
+    <lastmod>2022-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://daihaojun554.github.io/tags/vue/</loc>
     <lastmod>2022-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
