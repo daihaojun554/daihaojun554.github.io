@@ -68,9 +68,9 @@
     <link href="http://daihaojun554.github.io/2022/06/17/Docker/"/>
     <id>http://daihaojun554.github.io/2022/06/17/Docker/</id>
     <published>2022-06-17T00:00:00.000Z</published>
-    <updated>2022-06-17T12:37:45.175Z</updated>
+    <updated>2022-06-18T05:52:37.101Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="一、Docker"><a href="#一、Docker" class="headerlink" title="一、Docker"></a>一、Docker</h1><p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220617164342451.png" alt="image-20220617164342451"></p><h2 id="Docker如何解决依赖兼容问题的"><a href="#Docker如何解决依赖兼容问题的" class="headerlink" title="Docker如何解决依赖兼容问题的"></a>Docker如何解决依赖兼容问题的</h2><ul><li>将应用的Libs(函数库)和deps(依赖).配置一起打包</li><li>将每个应用放到一个隔离的容器中去运行，避免互相干扰</li></ul><h2 id="Docker如何解决不同系统环境的问题"><a href="#Docker如何解决不同系统环境的问题" class="headerlink" title="Docker如何解决不同系统环境的问题"></a>Docker如何解决不同系统环境的问题</h2><ul><li>Docker将用户程序所需要调用的系统(比如centos)函数库一起打包</li><li>Docker运行到不同操作系统时，直接基于函数打包的函数库，借助于操作系统的Linux内核来运行</li></ul><table><thead><tr><th><a href="https://www.runoob.com/docker/centos-docker-install.html">centos7安装docker</a></th></tr></thead></table><h2 id="docker基本操作"><a href="#docker基本操作" class="headerlink" title="docker基本操作"></a>docker基本操作</h2><p>1、docker build 构建镜像</p><p>2、docker images 查看本地镜像</p><p>3、docker pull 从服务器拉取镜像</p><p>4、docker rmi 删除镜像(remove image)</p><p>5、docker push 推送镜像</p><p>6、docker save 保存镜像为压缩包</p><p>7、docker load 加载docker文件</p><p>docker commond –help查看某个命令的文档</p><p>容器的操作：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name myname -p 80:80 -d nginx</span><br></pre></td></tr></table></figure><p>–name myname :给我的容器取个名字</p><p>-p:端口映射 前面的是宿主机，后面的是容器端口</p><p>-d：后台运行</p><p> nginx： 镜像的名称，基于这个镜像创建一个容器</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="一、Docker"><a href="#一、Docker" class="headerlink" title="一、Docker"></a>一、Docker</h1><p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220617164342451.png" alt="image-20220617164342451"></p><h2 id="Docker如何解决依赖兼容问题的"><a href="#Docker如何解决依赖兼容问题的" class="headerlink" title="Docker如何解决依赖兼容问题的"></a>Docker如何解决依赖兼容问题的</h2><ul><li>将应用的Libs(函数库)和deps(依赖).配置一起打包</li><li>将每个应用放到一个隔离的容器中去运行，避免互相干扰</li></ul><h2 id="Docker如何解决不同系统环境的问题"><a href="#Docker如何解决不同系统环境的问题" class="headerlink" title="Docker如何解决不同系统环境的问题"></a>Docker如何解决不同系统环境的问题</h2><ul><li>Docker将用户程序所需要调用的系统(比如centos)函数库一起打包</li><li>Docker运行到不同操作系统时，直接基于函数打包的函数库，借助于操作系统的Linux内核来运行</li></ul><table><thead><tr><th><a href="https://www.runoob.com/docker/centos-docker-install.html">centos7安装docker</a></th></tr></thead></table><h2 id="docker基本操作"><a href="#docker基本操作" class="headerlink" title="docker基本操作"></a>docker基本操作</h2><p>1、docker build 构建镜像</p><p>2、docker images 查看本地镜像</p><p>3、docker pull 从服务器拉取镜像</p><p>4、docker rmi 删除镜像(remove image)</p><p>5、docker push 推送镜像</p><p>6、docker save 保存镜像为压缩包</p><p>7、docker load 加载docker文件</p><p>docker commond –help查看某个命令的文档</p><p>容器的操作：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name myname -p 80:80 -d nginx</span><br></pre></td></tr></table></figure><p>–name myname :给我的容器取个名字</p><p>-p:端口映射 前面的是宿主机，后面的是容器端口</p><p>-d：后台运行</p><p> nginx： 镜像的名称，基于这个镜像创建一个容器</p><p>进入容器内部：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it  name bash</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker volume [<span class="built_in">command</span>]</span><br></pre></td></tr></table></figure><p> 数据卷：volume是一个虚拟目录，指向宿主机文件系统的某个目录</p><p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220618122154940.png" alt="image-20220618122154940"></p><p>create ：创建一个 volume</p><p>inspect：显示出一个或多个数据卷的信息</p><p>ls：列出所有的数据卷</p><p>prune ：删除未使用的数据卷</p><p>rm：删除一个或多个指定的volume</p><p>在创建容器的时候可以使用-v参数来挂载一个数据卷到某个容器内部</p><p>创建一个nginx的容器并且挂载到本地的80端口，并且数据在本地的&#x2F;home&#x2F;mydata&#x2F;nginx&#x2F;html里面</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name myname -p 80:80 -v /home/mydata/nginx/html:/usr/share/nginx/html -d nginx</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
@@ -105,9 +105,9 @@
     
     
     
-    <category term="SpringBoot" scheme="http://daihaojun554.github.io/tags/SpringBoot/"/>
-    
     <category term="Spring" scheme="http://daihaojun554.github.io/tags/Spring/"/>
+    
+    <category term="SpringBoot" scheme="http://daihaojun554.github.io/tags/SpringBoot/"/>
     
     <category term="SpringMVC" scheme="http://daihaojun554.github.io/tags/SpringMVC/"/>
     
@@ -133,9 +133,9 @@
     
     
     
-    <category term="SpringBoot" scheme="http://daihaojun554.github.io/tags/SpringBoot/"/>
-    
     <category term="框架" scheme="http://daihaojun554.github.io/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+    <category term="SpringBoot" scheme="http://daihaojun554.github.io/tags/SpringBoot/"/>
     
     <category term="Mybatis-plus" scheme="http://daihaojun554.github.io/tags/Mybatis-plus/"/>
     
@@ -308,9 +308,9 @@
     
     
     
-    <category term="框架" scheme="http://daihaojun554.github.io/tags/%E6%A1%86%E6%9E%B6/"/>
-    
     <category term="Spring" scheme="http://daihaojun554.github.io/tags/Spring/"/>
+    
+    <category term="框架" scheme="http://daihaojun554.github.io/tags/%E6%A1%86%E6%9E%B6/"/>
     
   </entry>
   
@@ -385,9 +385,9 @@
     
     
     
-    <category term="SpringBoot" scheme="http://daihaojun554.github.io/tags/SpringBoot/"/>
-    
     <category term="Spring" scheme="http://daihaojun554.github.io/tags/Spring/"/>
+    
+    <category term="SpringBoot" scheme="http://daihaojun554.github.io/tags/SpringBoot/"/>
     
   </entry>
   
