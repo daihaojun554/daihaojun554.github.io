@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="GateWay网关"><meta name="keywords" content="网关"><meta name="author" content="DaiHaojun"><meta name="copyright" content="DaiHaojun"><title>GateWay网关 | myblog</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  hexoVersion: '6.1.0'
+} </script><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="myblog" type="application/atom+xml">
+</head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GateWay%E7%BD%91%E5%85%B3"><span class="toc-number">1.</span> <span class="toc-text">GateWay网关</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E7%BD%91%E5%85%B3%E7%9A%84%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">搭建网关的步骤：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E6%96%AD%E8%A8%80%E5%B7%A5%E5%8E%82%E7%9A%84%E5%8F%AF%E9%85%8D%E7%BD%AE%E5%86%85%E5%AE%B9%EF%BC%9A"><span class="toc-number">1.2.</span> <span class="toc-text">路由断言工厂的可配置内容：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1"><span class="toc-number">1.2.1.</span> <span class="toc-text">路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">1.2.2.</span> <span class="toc-text">过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GateWayFilter%EF%BC%9A"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">GateWayFilter：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E8%BF%87%E6%BB%A4%E5%99%A8%EF%BC%9A"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">全局过滤器：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8%E9%A1%BA%E5%BA%8F"><span class="toc-number">1.3.</span> <span class="toc-text">过滤器顺序</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">DaiHaojun</div><div class="author-info__description text-center">记录学习日常</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">25</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">36</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">myblog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">GateWay网关</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2022-06-19</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h1 id="GateWay网关"><a href="#GateWay网关" class="headerlink" title="GateWay网关"></a><code>GateWay</code>网关</h1><p>为什么需要网关？对微服务的保护</p>
+<p>网管的功能：</p>
+<ul>
+<li>身份认证和权限校验</li>
+<li>服务路由，负载均衡</li>
+<li>请求限流</li>
+</ul>
+<p>所有的请求首先进入网关</p>
+<p>网关技术的实现：</p>
+<p>在springcloud中网关的实现包括两种</p>
+<ul>
+<li><p>gateway</p>
+</li>
+<li><p>zuul</p>
+<p><code>zuul</code>是基于<code>servlet</code>实现的，属于阻塞式的编程，而<code>springcloudGateway</code>是<code>spring5</code>中提供的<code>webflux</code>属于<strong>响应式的编程</strong>，具有<strong>更好的性能</strong></p>
+</li>
+</ul>
+<h2 id="搭建网关的步骤："><a href="#搭建网关的步骤：" class="headerlink" title="搭建网关的步骤："></a>搭建网关的步骤：</h2><p>网关是一个独立的服务</p>
+<p>1、需要引入两个依赖</p>
+<p>nacos微服务的注册和发现，gateway的依赖</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-gateway --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-gateway<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>2、配置服务的注册与发现     </p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">10000</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">gateway</span> <span class="comment"># 服务名称</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">server-addr:</span> <span class="string">localhost:8848</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>编写路由配置和nacos的地址</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">gateway:</span></span><br><span class="line">  <span class="attr">routes:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">userservice</span> <span class="comment">#路由标识</span></span><br><span class="line">      <span class="attr">uri:</span> <span class="string">lb://userservice/</span>  <span class="comment"># 路由的目标地址</span></span><br><span class="line">      <span class="attr">predicates:</span> <span class="comment">#路由断言，判断请求是否符合规则</span></span><br><span class="line">       <span class="bullet">-</span> <span class="string">Path=/user/**</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">orderservice</span></span><br><span class="line">      <span class="attr">uri:</span> <span class="string">lb://orderservice/</span></span><br><span class="line">      <span class="attr">predicates:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">Path=/order/**</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="路由断言工厂的可配置内容："><a href="#路由断言工厂的可配置内容：" class="headerlink" title="路由断言工厂的可配置内容："></a>路由断言工厂的可配置内容：</h2><ul>
+<li>路由id，唯一标识</li>
+<li>路由目标地址uri，可配成lb和http两种</li>
+<li>路由的断言predicates，判断请求是否符合要求，符合就转到目标路由地址</li>
+<li>filter：路由的过滤器，处理请求和响应</li>
+</ul>
+<p>Spring中提供了11个基本的predicate工厂</p>
+<h3 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h3><table>
+<thead>
+<tr>
+<th align="left">名称</th>
+<th align="left">说明</th>
+<th align="left">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">After</td>
+<td align="left">是某个时间点后的请求</td>
+<td align="left">- After&#x3D;2037-01-20T17:42:47.789-07:00[America&#x2F;Denver]</td>
+</tr>
+<tr>
+<td align="left">Before</td>
+<td align="left">是某个时间点之前的请求</td>
+<td align="left">- Before&#x3D;2031-04-13T15:14:47.433+08:00[Asia&#x2F;Shanghai]</td>
+</tr>
+<tr>
+<td align="left">Between</td>
+<td align="left">是某两个时间点之前的请求</td>
+<td align="left">- Between&#x3D;2037-01-20T17:42:47.789-07:00[America&#x2F;Denver], 2037-01-21T17:42:47.789-07:00[America&#x2F;Denver]</td>
+</tr>
+<tr>
+<td align="left">Cookie</td>
+<td align="left">请求必须包含某些cookie</td>
+<td align="left">- Cookie&#x3D;chocolate, ch.p</td>
+</tr>
+<tr>
+<td align="left">Header</td>
+<td align="left">请求必须包含某些header</td>
+<td align="left">- Header&#x3D;X-Request-Id, \d+</td>
+</tr>
+<tr>
+<td align="left">Host</td>
+<td align="left">请求必须是访问某个host（域名）</td>
+<td align="left">- Host&#x3D;<code>**.somehost.org</code>, <code>**.anotherhost.org</code></td>
+</tr>
+<tr>
+<td align="left">Method</td>
+<td align="left">请求方式必须是指定方式</td>
+<td align="left">- Method&#x3D;GET,POST</td>
+</tr>
+<tr>
+<td align="left">Path</td>
+<td align="left">请求路径必须符合指定规则</td>
+<td align="left">- Path&#x3D;&#x2F;red&#x2F;{segment},&#x2F;blue&#x2F;**</td>
+</tr>
+<tr>
+<td align="left">Query</td>
+<td align="left">请求参数必须包含指定参数</td>
+<td align="left">- Query&#x3D;name, Jack或者- Query&#x3D;name</td>
+</tr>
+<tr>
+<td align="left">RemoteAddr</td>
+<td align="left">请求者的ip必须是指定范围</td>
+<td align="left">- RemoteAddr&#x3D;192.168.1.1&#x2F;24</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>官方文档：<a target="_blank" rel="noopener" href="https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gateway-request-predicates-factories">Spring Cloud Gateway predicates</a></th>
+</tr>
+</thead>
+</table>
+<h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><h4 id="GateWayFilter："><a href="#GateWayFilter：" class="headerlink" title="GateWayFilter："></a><strong>GateWayFilter：</strong></h4><p>是网关提供的一种过滤器，可以对进入网关的请求和微服务返回的响应进行处理</p>
+<p>Spring提供的过滤器工厂有30多个：</p>
+<table>
+<thead>
+<tr>
+<th>官方文档：<a target="_blank" rel="noopener" href="https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gatewayfilter-factories">Spring Cloud Gateway Filter</a></th>
+</tr>
+</thead>
+</table>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">filters:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">AddRequestHeader=color-key,</span> <span class="string">blue-value</span></span><br></pre></td></tr></table></figure>
+
+<p>当然，Gateway 也是有<strong>全局过滤器</strong>的，如果要<strong>对所有的路由都生效</strong>，则可以将过滤器工厂写到 default-filters 下：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">gateway:</span></span><br><span class="line">      <span class="attr">default-filters:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">AddRequestHeader=msg,</span> <span class="string">this</span> <span class="string">is</span> <span class="string">my</span> <span class="string">message</span> <span class="comment"># 添加请求头</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="全局过滤器："><a href="#全局过滤器：" class="headerlink" title="全局过滤器："></a><strong>全局过滤器：</strong></h4><p>globalFilter：</p>
+<p>全局过滤器可以自定义逻辑，实现<code>globalFilter</code>接口</p>
+<p><strong>需求：</strong>定义全局过滤器，拦截请求，判断请求的参数是否满足下面条件</p>
+<ul>
+<li>参数中是否有 authorization</li>
+<li>authorization 参数值是否为 admin</li>
+</ul>
+<p>如果同时满足则放行，否则拦截。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="comment">//@Order(-1)//执行顺序值越小，优先级越高</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AuthorZeFilter</span> <span class="keyword">implements</span> <span class="title class_">GlobalFilter</span>, Ordered &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * **需求：**定义全局过滤器，拦截请求，判断请求的参数是否满足下面条件</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;</span></span><br><span class="line"><span class="comment">     * - 参数中是否有 authorization</span></span><br><span class="line"><span class="comment">     * - authorization 参数值是否为 admin</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;</span></span><br><span class="line"><span class="comment">     * 如果同时满足则放行，否则拦截。</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> exchange</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> chain</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Mono&lt;Void&gt; <span class="title function_">filter</span><span class="params">(ServerWebExchange exchange, GatewayFilterChain chain)</span> &#123;</span><br><span class="line"><span class="comment">//        1获取请求参数</span></span><br><span class="line">        <span class="type">ServerHttpRequest</span> <span class="variable">request</span> <span class="operator">=</span> exchange.getRequest();</span><br><span class="line"></span><br><span class="line">        MultiValueMap&lt;String, String&gt; queryParams = request.getQueryParams();</span><br><span class="line"></span><br><span class="line">        <span class="type">String</span> <span class="variable">authorization</span> <span class="operator">=</span> queryParams.getFirst(<span class="string">&quot;authorization&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">&quot;admin&quot;</span>.equals(authorization)) &#123;</span><br><span class="line"><span class="comment">//            是,就放行</span></span><br><span class="line">            <span class="keyword">return</span> chain.filter(exchange);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            exchange.getResponse().setStatusCode(UNAUTHORIZED);<span class="comment">//401</span></span><br><span class="line">            <span class="comment">//拦截</span></span><br><span class="line">            <span class="keyword">return</span> exchange.getResponse().setComplete();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getOrder</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>再去访问这个才行</p>
+<p><a target="_blank" rel="noopener" href="http://localhost:10000/user/now?authorization=admin">http://localhost:10000/user/now?authorization=admin</a></p>
+<p><strong>过滤器一定要有顺序</strong></p>
+<p>过滤器的执行顺序</p>
+<h2 id="过滤器顺序"><a href="#过滤器顺序" class="headerlink" title="过滤器顺序"></a>过滤器顺序</h2><p>请求进入网关会碰到三类过滤器：DefaultFilter、当前路由的过滤器、GlobalFilter；</p>
+<p>请求路由后，会将三者合并到一个过滤器链（集合）中，排序后依次执行每个过滤器.</p>
+<p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220617162511736.png" alt="image-20220617162511736"></p>
+<p>排序的规则是什么呢？</p>
+<ul>
+<li><p>每一个过滤器都必须指定一个 int 类型的 order 值，<strong>order 值越小，优先级越高，执行顺序越靠前</strong>。</p>
+</li>
+<li><p>GlobalFilter 通过实现 Ordered 接口，或者使用 @Order 注解来指定 order 值，由我们自己指定。</p>
+</li>
+<li><p>路由过滤器和 defaultFilter 的 order 由 Spring 指定，默认是按照声明顺序从1递增。</p>
+</li>
+<li><p>当过滤器的 order 值一样时，<strong>会按照 defaultFilter &gt; 路由过滤器 &gt; GlobalFilter 的顺序执行。</strong></p>
+</li>
+</ul>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">DaiHaojun</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://daihaojun554.github.io/2022/06/20/GateWay网关/">http://daihaojun554.github.io/2022/06/20/GateWay网关/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BD%91%E5%85%B3/">网关</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2022/06/20/ELasticsearch%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"><i class="fa fa-chevron-left">  </i><span>ELasticsearch搜索引擎</span></a></div><div class="next-post pull-right"><a href="/2022/06/19/SpringCloud/"><span>SpringCloud</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2022 By DaiHaojun</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://daihaojun.top">blog</a>!</div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://lib.baomitu.com/animejs/latest/anime.min.js"></script><script src="https://lib.baomitu.com/jquery/latest/jquery.min.js"></script><script src="https://lib.baomitu.com/fancybox/latest/jquery.fancybox.min.js"></script><script src="https://lib.baomitu.com/velocity/latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" data-click="false"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Nacos"><meta name="keywords" content="spring cloud,注册中心，发现,微服务"><meta name="author" content="DaiHaojun"><meta name="copyright" content="DaiHaojun"><title>Nacos | myblog</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  hexoVersion: '6.1.0'
+} </script><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="myblog" type="application/atom+xml">
+</head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81Nacos%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E7%9A%84%E4%BA%A7%E5%93%81"><span class="toc-number">1.</span> <span class="toc-text">一、Nacos注册中心(阿里巴巴的产品)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">下载：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%EF%BC%9A"><span class="toc-number">1.2.</span> <span class="toc-text">服务注册：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%9B%86%E7%BE%A4"><span class="toc-number">1.3.</span> <span class="toc-text">配置集群</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E7%BE%A4%E7%9A%84%E5%90%8D%E5%AD%97%EF%BC%9A"><span class="toc-number">1.3.1.</span> <span class="toc-text">集群的名字：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%83%E9%87%8D%EF%BC%9A"><span class="toc-number">1.3.2.</span> <span class="toc-text">权重：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E9%9A%94%E7%A6%BB-namespace%EF%BC%9A"><span class="toc-number">1.3.3.</span> <span class="toc-text">环境隔离-namespace：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81"><span class="toc-number">2.</span> <span class="toc-text">二、</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%9A%84%E7%BB%9F%E4%B8%80%E7%AE%A1%E7%90%86%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">配置的统一管理：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%83%AD%E6%9B%B4%E6%96%B0%EF%BC%9A"><span class="toc-number">2.2.</span> <span class="toc-text">热更新：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86"><span class="toc-number">2.3.</span> <span class="toc-text">多环境配置管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">2.4.</span> <span class="toc-text">配置优先级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8"><span class="toc-number">2.5.</span> <span class="toc-text">远程调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E9%85%8D%E7%BD%AE"><span class="toc-number">2.6.</span> <span class="toc-text">自定义配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Feign%E7%9A%84%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98-%E8%BF%9E%E6%8E%A5%E6%B1%A0%E9%85%8D%E7%BD%AE"><span class="toc-number">2.7.</span> <span class="toc-text">Feign的性能调优-连接池配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="toc-number">2.8.</span> <span class="toc-text">最佳实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF%E6%96%B9%E5%BC%8F"><span class="toc-number">2.8.1.</span> <span class="toc-text">继承方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%BD%E5%8F%96%E6%96%B9%E5%BC%8F"><span class="toc-number">2.8.2.</span> <span class="toc-text">抽取方式</span></a></li></ol></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">DaiHaojun</div><div class="author-info__description text-center">记录学习日常</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">25</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">36</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">myblog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">Nacos</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2022-04-28</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h1 id="一、Nacos注册中心-阿里巴巴的产品"><a href="#一、Nacos注册中心-阿里巴巴的产品" class="headerlink" title="一、Nacos注册中心(阿里巴巴的产品)"></a>一、Nacos注册中心(阿里巴巴的产品)</h1><ul>
+<li>服务的注册与发现</li>
+<li>分布式配置</li>
+</ul>
+<h2 id="下载："><a href="#下载：" class="headerlink" title="下载："></a>下载：</h2><p><a target="_blank" rel="noopener" href="https://github.com/alibaba/nacos/releases">https://github.com/alibaba/nacos/releases</a></p>
+<p>下载慢</p>
+<p>国内：<a target="_blank" rel="noopener" href="https://gitee.com/mirrors/Nacos">https://gitee.com/mirrors/Nacos</a></p>
+<p>解压后到bin目录去</p>
+<p>执行：启动nacos服务</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">startup.cmd -m standalone</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220616231510198.png" alt="image-20220616231510198"></p>
+<p>访问这个地址</p>
+<p>用户名和密码是nacos</p>
+<h2 id="服务注册："><a href="#服务注册：" class="headerlink" title="服务注册："></a>服务注册：</h2><p><strong>引入依赖</strong></p>
+<p>在 cloud-demo 父工程中引入 SpringCloudAlibaba 的依赖：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-alibaba-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.6.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后在 user-service 和 order-service 中的pom文件中引入 nacos-discovery 依赖：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后再次做配置：</p>
+<p>​	注意需要注释掉原来的eureka的yml配置</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br></pre></td></tr></table></figure>
+
+<p>访问</p>
+<p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220616232810463.png" alt="image-20220616232810463"></p>
+<h2 id="配置集群"><a href="#配置集群" class="headerlink" title="配置集群"></a>配置集群</h2><p>接下来我们给 user-service <strong>配置集群</strong></p>
+<p>修改 user-service 的 application.yml 文件，添加集群配置：</p>
+<h3 id="集群的名字："><a href="#集群的名字：" class="headerlink" title="集群的名字："></a>集群的名字：</h3><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">server-addr:</span> <span class="string">localhost:8848</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">cluster-name:</span> <span class="string">HZ</span> <span class="comment"># 集群名称 HZ杭州</span></span><br></pre></td></tr></table></figure>
+
+<p>重启两个 user-service 实例后，我们再去启动一个上海集群的实例。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">-Dserver.port=8083 -Dspring.cloud.nacos.discovery.cluster-name=SH</span><br></pre></td></tr></table></figure>
+
+<p>去nacos看</p>
+<p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220617120443179.png" alt="image-20220617120443179"></p>
+<p>可以发现有集群的地址</p>
+<h3 id="权重："><a href="#权重：" class="headerlink" title="权重："></a>权重：</h3><p>权重的值可以自己配，</p>
+<p>越小就能让他被访问的次数越小，权重为0 的时候直接不会访问</p>
+<p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220617120933277.png" alt="image-20220617120933277"></p>
+<p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220617120948473.png" alt="image-20220617120948473"></p>
+<h3 id="环境隔离-namespace："><a href="#环境隔离-namespace：" class="headerlink" title="环境隔离-namespace："></a>环境隔离-namespace：</h3><p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220617123344147.png" alt="image-20220617123344147"></p>
+<p><strong>nacos中服务存储和数据存储，的最外层都是一个名为namespace的东西，用来做最外层的隔离</strong></p>
+<p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220617121410936.png" alt="image-20220617121410936"></p>
+<p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220617121430151.png" alt="image-20220617121430151"></p>
+<p>命名空间的id可以不填，会自动生成</p>
+<p>如何修改一个实例的命名空间，？</p>
+<p>去代码修改</p>
+<p>在你的yml文件里面加上</p>
+<p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220617121752146.png" alt="image-20220617121752146"></p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">cloud:</span></span><br><span class="line">  <span class="attr">nacos:</span></span><br><span class="line">    <span class="attr">server-addr:</span> <span class="string">localhost:8848</span></span><br><span class="line">    <span class="attr">discovery:</span></span><br><span class="line">      <span class="attr">namespace:</span> <span class="number">1398e436</span><span class="string">-69c1-44b5-bdc5-e36811d81966</span></span><br></pre></td></tr></table></figure>
+
+<p>namespace的值为生成的值</p>
+<h1 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h1><ul>
+<li><p>配置</p>
+</li>
+<li><p>feign远程调用</p>
+</li>
+<li><p>gateway网关</p>
+</li>
+</ul>
+<h2 id="配置的统一管理："><a href="#配置的统一管理：" class="headerlink" title="配置的统一管理："></a>配置的统一管理：</h2><p>在nacos中添加一个配置文件</p>
+<p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220617123140019.png" alt="image-20220617123140019"></p>
+<p>把 nacos 地址放在 application.yml 中，显然是不合适的，<strong>Nacos 就无法根据地址去获取配置了。</strong></p>
+<p>因此，nacos 地址必须放在优先级最高的 bootstrap.yml 文件。</p>
+<p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220617123436556.png" alt="image-20220617123436556"></p>
+<p>具体实现：</p>
+<p>1、引入配置客户端的依赖</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--nacos配置管理依赖--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-config<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>2、写配置文件</p>
+<p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220617124822776.png" alt="image-20220617124822776"></p>
+<h2 id="热更新："><a href="#热更新：" class="headerlink" title="热更新："></a>热更新：</h2><p>nacos中的配置文件中变更后。</p>
+<p>是修改 nacos 中的配置后，微服务中无需重启即可让配置生效，也就是<strong>配置热更新</strong>。</p>
+<p>有两种方式：</p>
+<ol>
+<li>用 <code>@value</code> 读取配置时，搭配 <code>@RefreshScope</code>；</li>
+</ol>
+<p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220617130136390.png" alt="image-20220617130136390"></p>
+<ol start="2">
+<li>直接用 <code>@ConfigurationProperties</code> 读取配置</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@ConfigurationProperties(prefix = &quot;pattern&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PatternProperties</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String dateformat;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> PatternProperties patternProperties;</span><br><span class="line"></span><br><span class="line"><span class="meta">@GetMapping(&quot;now&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">now</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="comment">//格式化时间</span></span><br><span class="line">    <span class="keyword">return</span> LocalDateTime.now().format(DateTimeFormatter.ofPattern(patternProperties.getDateformat()));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="多环境配置管理"><a href="#多环境配置管理" class="headerlink" title="多环境配置管理"></a>多环境配置管理</h2><p>共享的环境</p>
+<p><strong>在 user-service 中读取共享配置</strong></p>
+<p>在 user-service 服务中，修改 PatternProperties 类，读取新添加的属性：</p>
+<p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220617132057652.png" alt="image-20220617132057652"></p>
+<p><strong>运行两个 UserApplication，使用不同的profile</strong></p>
+<p>修改 UserApplication2 这个启动项，改变其profile值：</p>
+<p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220617132117524.png" alt="image-20220617132117524"></p>
+<p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220617132129835.png" alt="image-20220617132129835"></p>
+<p>这样，UserApplication(8081) 使用的 profile 是 dev，UserApplication2(8082) 使用的 profile 是test</p>
+<p>启动 UserApplication 和 UserApplication2</p>
+<p>访问</p>
+<p><a target="_blank" rel="noopener" href="http://localhost:8081/user/prop">http://localhost:8081/user/prop</a></p>
+<p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220617132327199.png" alt="image-20220617132327199"></p>
+<p>和</p>
+<p><a target="_blank" rel="noopener" href="http://localhost:8082/user/prop">http://localhost:8082/user/prop</a></p>
+<p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220617132225423.png" alt="image-20220617132225423"></p>
+<h2 id="配置优先级"><a href="#配置优先级" class="headerlink" title="配置优先级"></a>配置优先级</h2><p>当 nacos、服务本地同时<strong>出现相同属性时</strong>，优先级有高低之分。</p>
+<p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220617132726467.png" alt="image-20220617132726467"></p>
+<h2 id="远程调用"><a href="#远程调用" class="headerlink" title="远程调用"></a>远程调用</h2><p>发一条http请求需要</p>
+<ul>
+<li>服务名称</li>
+<li>请求的url</li>
+<li>请求参数</li>
+<li>请求的方式</li>
+<li>请求的返回类型</li>
+</ul>
+<p><strong>添加feign的依赖</strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-openfeign<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>添加注解</strong></p>
+<p>在 order-service 启动类添加注解开启 Feign</p>
+<p><code>@EnableFeignClient</code></p>
+<p><strong>在 order-service 中新建一个接口</strong>，内容如下</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@FeignClient(&quot;userservice&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">UserFeign</span> &#123;</span><br><span class="line">    <span class="meta">@GetMapping(&quot;/user/&#123;id&#125;&quot;)</span></span><br><span class="line">    User <span class="title function_">findById</span><span class="params">(<span class="meta">@PathVariable(&quot;id&quot;)</span> Long id)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>@FeignClient(&quot;userservice&quot;)</code>：其中参数填写的是微服务名</p>
+<p><code>@GetMapping(&quot;/user/&#123;id&#125;&quot;)</code>：其中参数填写的是请求路径</p>
+<p>这个客户端主要是基于 <code>SpringMVC</code> 的注解 <code>@GetMapping</code> 来声明远程调用的信息</p>
+<p><code>Feign</code> 可以帮助我们发送 http 请求，无需自己使用 <code>RestTemplate</code> 来发送了。</p>
+<p><strong>注意：两个不同的服务要在同一个<code>namespace</code>的时候才能被远程调用</strong></p>
+<h2 id="自定义配置"><a href="#自定义配置" class="headerlink" title="自定义配置"></a>自定义配置</h2><p>Feign 可以支持很多的自定义配置，如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">作用</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>feign.Logger.Level</strong></td>
+<td align="left">修改日志级别</td>
+<td align="left">包含四种不同的级别：NONE、BASIC、HEADERS、FULL</td>
+</tr>
+<tr>
+<td align="left">feign.codec.Decoder</td>
+<td align="left">响应结果的解析器</td>
+<td align="left">http远程调用的结果做解析，例如解析json字符串为java对象</td>
+</tr>
+<tr>
+<td align="left">feign.codec.Encoder</td>
+<td align="left">请求参数编码</td>
+<td align="left">将请求参数编码，便于通过http请求发送</td>
+</tr>
+<tr>
+<td align="left">feign.Contract</td>
+<td align="left">支持的注解格式</td>
+<td align="left">默认是SpringMVC的注解</td>
+</tr>
+<tr>
+<td align="left">feign.Retryer</td>
+<td align="left">失败重试机制</td>
+<td align="left">请求失败的重试机制，默认是没有，不过会使用Ribbon的重试</td>
+</tr>
+</tbody></table>
+<p>一般情况下，默认值就能满足我们使用，如果要自定义时，只需要创建自定义的 @Bean 覆盖默认 Bean 即可。下面以日志为例来演示如何自定义配置。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">feign:</span></span><br><span class="line">  <span class="attr">client:</span></span><br><span class="line">    <span class="attr">config:</span> </span><br><span class="line">      <span class="attr">default:</span> <span class="comment"># 针对所有微服务的配置</span></span><br><span class="line">        <span class="attr">loggerLevel:</span> <span class="string">FULL</span> <span class="comment">#  日志级别 </span></span><br><span class="line">    <span class="comment">#=======================================================================================================</span></span><br><span class="line">    </span><br><span class="line"><span class="attr">feign:</span></span><br><span class="line">  <span class="attr">client:</span></span><br><span class="line">    <span class="attr">config:</span> </span><br><span class="line">      <span class="attr">userservice:</span> <span class="comment"># 针对某个微服务的配置</span></span><br><span class="line">        <span class="attr">loggerLevel:</span> <span class="string">FULL</span> <span class="comment">#  日志级别 </span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>NONE：不记录任何日志信息，这是默认值。</li>
+<li>BASIC：仅记录请求的方法，URL以及响应状态码和执行时间</li>
+<li>HEADERS：在BASIC的基础上，额外记录了请求和响应的头信息</li>
+<li>FULL：记录所有请求和响应的明细，包括头信息、请求体、元数据</li>
+</ul>
+<p>也可以基于 <strong>Java 代码</strong>来修改日志级别，先声明一个类，然后声明一个 Logger.Level 的对象</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DefaultFeignConfiguration</span>  &#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> Logger.Level <span class="title function_">feignLogLevel</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Logger.Level.BASIC; <span class="comment">// 日志级别为BASIC</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果要<strong>全局生效</strong>，将其放到启动类的 <code>@EnableFeignClients</code> 这个注解中：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@EnableFeignClients(defaultConfiguration = DefaultFeignConfiguration .class)</span> </span><br></pre></td></tr></table></figure>
+
+<p>如果是<strong>局部生效</strong>，则把它放到对应的 <code>@FeignClient</code> 这个注解中：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@FeignClient(value = &quot;userservice&quot;, configuration = DefaultFeignConfiguration .class)</span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="Feign的性能调优-连接池配置"><a href="#Feign的性能调优-连接池配置" class="headerlink" title="Feign的性能调优-连接池配置"></a>Feign的性能调优-连接池配置</h2><p>Feign添加<code>HttpClient</code>的支持</p>
+<p>引入依赖</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--httpClient的依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.github.openfeign<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>feign-httpclient<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>配置连接池</strong></p>
+<p>在 order-service 的 application.yml 中添加配置</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">feign:</span></span><br><span class="line">  <span class="attr">client:</span></span><br><span class="line">    <span class="attr">config:</span></span><br><span class="line">      <span class="attr">default:</span> <span class="comment"># default全局的配置</span></span><br><span class="line">        <span class="attr">loggerLevel:</span> <span class="string">BASIC</span> <span class="comment"># 日志级别，BASIC就是基本的请求和响应信息</span></span><br><span class="line">  <span class="attr">httpclient:</span></span><br><span class="line">    <span class="attr">enabled:</span> <span class="literal">true</span> <span class="comment"># 开启feign对HttpClient的支持</span></span><br><span class="line">    <span class="attr">max-connections:</span> <span class="number">200</span> <span class="comment"># 最大的连接数</span></span><br><span class="line">    <span class="attr">max-connections-per-route:</span> <span class="number">50</span> <span class="comment"># 每个路径的最大连接数</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><h3 id="继承方式"><a href="#继承方式" class="headerlink" title="继承方式"></a>继承方式</h3><p>一样的代码可以通过继承来共享：</p>
+<p>1）定义一个 API 接口，利用定义方法，并基于 SpringMVC 注解做声明</p>
+<p>2）Feign 客户端、Controller 都集成该接口</p>
+<p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220617142658137.png" alt="image-20220617142658137"></p>
+<h3 id="抽取方式"><a href="#抽取方式" class="headerlink" title="抽取方式"></a>抽取方式</h3><p>将 FeignClient 抽取为独立模块，并且把接口有关的 pojo、默认的 Feign 配置都放到这个模块中，提供给所有消费者使用。</p>
+<p>例如：将 UserClient、User、Feign 的默认配置都抽取到一个 feign-api 包中，所有微服务引用该依赖包，即可直接使用。</p>
+<p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220617143136602.png" alt="image-20220617143136602"></p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">DaiHaojun</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://daihaojun554.github.io/2022/04/29/Nacos/">http://daihaojun554.github.io/2022/04/29/Nacos/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/spring-cloud/">spring cloud</a><a class="post-meta__tags" href="/tags/%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%EF%BC%8C%E5%8F%91%E7%8E%B0/">注册中心，发现</a><a class="post-meta__tags" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2022/05/21/SpringBoot%E5%8E%9F%E7%90%86%E7%AF%87/"><i class="fa fa-chevron-left">  </i><span>SpringBoot原理篇</span></a></div><div class="next-post pull-right"><a href="/2022/04/29/Mybatis-plus/"><span>Mybatis-plus</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2022 By DaiHaojun</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://daihaojun.top">blog</a>!</div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://lib.baomitu.com/animejs/latest/anime.min.js"></script><script src="https://lib.baomitu.com/jquery/latest/jquery.min.js"></script><script src="https://lib.baomitu.com/fancybox/latest/jquery.fancybox.min.js"></script><script src="https://lib.baomitu.com/velocity/latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" data-click="false"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="SpringCloud"><meta name="keywords" content="Spring,springCloud"><meta name="author" content="DaiHaojun"><meta name="copyright" content="DaiHaojun"><title>SpringCloud | myblog</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  hexoVersion: '6.1.0'
+} </script><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="myblog" type="application/atom+xml">
+</head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringCloud%E6%8A%80%E6%9C%AF"><span class="toc-number">1.</span> <span class="toc-text">SpringCloud技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E4%BD%93%E6%9E%B6%E6%9E%84"><span class="toc-number">1.1.</span> <span class="toc-text">单体架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84"><span class="toc-number">1.2.</span> <span class="toc-text">分布式架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.3.</span> <span class="toc-text">微服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringCloud"><span class="toc-number">1.4.</span> <span class="toc-text">SpringCloud</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E7%9F%A5%E8%AF%86"><span class="toc-number">1.5.</span> <span class="toc-text">内容知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E6%A0%88%E5%AF%B9%E6%AF%94"><span class="toc-number">1.6.</span> <span class="toc-text">技术栈对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%EF%BC%9A%E4%B8%80%E4%B8%AA%E8%AE%A2%E5%8D%95%E6%A8%A1%E5%9D%97%E5%92%8C%E4%B8%80%E4%B8%AA%E7%94%A8%E6%88%B7%E6%A8%A1%E5%9D%97"><span class="toc-number">1.7.</span> <span class="toc-text">案例：一个订单模块和一个用户模块</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1%E3%80%81Eureka%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83"><span class="toc-number">2.</span> <span class="toc-text">1、Eureka注册中心</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83-%E9%9C%80%E8%A6%81%E9%87%8D%E6%96%B0%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%BE%AE%E6%9C%8D%E5%8A%A1"><span class="toc-number">2.1.</span> <span class="toc-text">搭建注册中心(需要重新创建一个微服务)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%9A%84%E6%B3%A8%E5%86%8C"><span class="toc-number">2.2.</span> <span class="toc-text">服务的注册</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%9A%84%E6%8B%89%E5%8F%96"><span class="toc-number">2.3.</span> <span class="toc-text">服务的拉取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-number">2.4.</span> <span class="toc-text">负载均衡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%AD%96%E7%95%A5"><span class="toc-number">2.5.</span> <span class="toc-text">负载均衡策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%96%E7%95%A5"><span class="toc-number">2.6.</span> <span class="toc-text">自定义策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BB%A3%E7%A0%81%E6%96%B9%E5%BC%8F"><span class="toc-number">2.6.1.</span> <span class="toc-text">1 代码方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%96%B9%E5%BC%8F"><span class="toc-number">2.6.2.</span> <span class="toc-text">2 配置文件方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A5%A5%E9%A5%BF%E5%8A%A0%E8%BD%BD"><span class="toc-number">2.7.</span> <span class="toc-text">饥饿加载</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">DaiHaojun</div><div class="author-info__description text-center">记录学习日常</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">25</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">36</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">myblog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">SpringCloud</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2022-06-19</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h1 id="SpringCloud技术"><a href="#SpringCloud技术" class="headerlink" title="SpringCloud技术"></a>SpringCloud技术</h1><p><strong>认识微服务</strong></p>
+<h2 id="单体架构"><a href="#单体架构" class="headerlink" title="单体架构"></a>单体架构</h2><p><strong>单体架构</strong>：将业务的所有功能集中在一个项目中开发，打成一个包部署。</p>
+<p><img src="/2022/06/19/SpringCloud/image-20220616124406710.png" alt="image-20220616124406710"></p>
+<p><strong>优点：</strong>架构简单，部署成本低</p>
+<p><strong>缺点：</strong>耦合度高（维护困难、升级困难）</p>
+<h2 id="分布式架构"><a href="#分布式架构" class="headerlink" title="分布式架构"></a>分布式架构</h2><p><strong>分布式架构</strong>：根据业务功能对系统做拆分，每个业务功能模块作为独立项目开发，称为一个服务。</p>
+<p><img src="/2022/06/19/SpringCloud/image-20220616124430772.png" alt="image-20220616124430772"></p>
+<p><strong>优点：</strong>降低服务耦合，有利于服务升级和拓展</p>
+<p><strong>缺点：</strong>服务调用关系错综复杂</p>
+<p>分布式架构虽然降低了服务耦合，但是服务拆分时也有很多问题需要思考：</p>
+<ul>
+<li>服务拆分的粒度如何界定？</li>
+<li>服务之间如何调用？</li>
+<li>服务的调用关系如何管理？</li>
+</ul>
+<p><strong>人们需要制定一套行之有效的标准来约束分布式架构。</strong></p>
+<h2 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h2><p>微服务的架构特征：</p>
+<ul>
+<li>单一职责：微服务拆分粒度更小，每一个服务都对应唯一的业务能力，做到单一职责</li>
+<li>自治：团队独立、技术独立、数据独立，独立部署和交付</li>
+<li>面向服务：服务提供统一标准的接口，与语言和技术无关</li>
+<li>隔离性强：服务调用做好隔离、容错、降级，避免出现级联问题</li>
+</ul>
+<p><img src="/2022/06/19/SpringCloud/image-20220616124504388.png"></p>
+<p>微服务的上述特性<strong>其实是在给分布式架构制定一个标准</strong>，进一步降低服务之间的耦合度，提供服务的独立性和灵活性。做到高内聚，低耦合。</p>
+<p><strong>因此，可以认为微服务是一种经过良好架构设计的分布式架构方案 。</strong></p>
+<p>其中在 Java 领域最引人注目的就是 SpringCloud 提供的方案了。</p>
+<h2 id="SpringCloud"><a href="#SpringCloud" class="headerlink" title="SpringCloud"></a>SpringCloud</h2><p>SpringCloud 是目前国内使用最广泛的微服务框架。官网地址：<a target="_blank" rel="noopener" href="https://spring.io/projects/spring-cloud%E3%80%82">https://spring.io/projects/spring-cloud。</a></p>
+<p>SpringCloud 集成了各种微服务功能组件，并基于 SpringBoot 实现了这些组件的自动装配，从而提供了良好的开箱即用体验。</p>
+<p>其中常见的组件包括：</p>
+<p><img src="/2022/06/19/SpringCloud/image-20220616124523903.png"></p>
+<p>另外，SpringCloud 底层是依赖于 SpringBoot 的，并且有版本的兼容关系，如下：</p>
+<p><img src="/2022/06/19/SpringCloud/image-20220616142949202.png" alt="image-20220616142949202"></p>
+<h2 id="内容知识"><a href="#内容知识" class="headerlink" title="内容知识"></a>内容知识</h2><p><img src="/2022/06/19/SpringCloud/image-20220616124550661.png" alt="image-20220616124550661"></p>
+<p><img src="/2022/06/19/SpringCloud/image-20220616124639201.png"></p>
+<h2 id="技术栈对比"><a href="#技术栈对比" class="headerlink" title="技术栈对比"></a>技术栈对比</h2><p><img src="/2022/06/19/SpringCloud/image-20220616124710860.png"></p>
+<h2 id="案例：一个订单模块和一个用户模块"><a href="#案例：一个订单模块和一个用户模块" class="headerlink" title="案例：一个订单模块和一个用户模块"></a>案例：一个订单模块和一个用户模块</h2><p>当查询订单的同时查询出来他用户的信息</p>
+<p>用户和订单都是在不同的数据库，也就是说需要分库了，每个模块对应一个微服务</p>
+<p><img src="/2022/06/19/SpringCloud/image-20220616124940192.png" alt="image-20220616124940192"></p>
+<p>解决方法：我们可以在订单的业务层，当查询出来订单的时候获取到订单中用户的id然后再去发请求，因为是跨服务的，所以需要用到一个**<code>RestTemplate</code>**对象  </p>
+<p>这样子：启动容器的 时候注入一个**<code>RestTemplate</code>**对象  </p>
+<p><img src="/2022/06/19/SpringCloud/image-20220616125140481.png" alt="image-20220616125140481"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> RestTemplate <span class="title function_">template</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">RestTemplate</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">   <span class="keyword">public</span> Order <span class="title function_">queryOrderById</span><span class="params">(Long orderId)</span> &#123;</span><br><span class="line">        <span class="comment">// 1.查询订单</span></span><br><span class="line">        <span class="type">Order</span> <span class="variable">order</span> <span class="operator">=</span> orderMapper.findById(orderId);</span><br><span class="line">        <span class="type">User</span> <span class="variable">u</span> <span class="operator">=</span> restTemplate.getForObject(<span class="string">&quot;http://localhost:8081/user/&quot;</span> + order.getUserId(), User.class);</span><br><span class="line"><span class="comment">//        2.获取到订单里的用户id,并且再次发送请求</span></span><br><span class="line"></span><br><span class="line">       <span class="comment">//3、将查询出来的值设置到订单里去</span></span><br><span class="line">        order.setUser(u);</span><br><span class="line">        <span class="comment">// 4.返回</span></span><br><span class="line">        <span class="keyword">return</span> order;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>再次启动服务就ok</p>
+<p>在一次服务中，服务的调用者为消费者，服务的提供者为提供者</p>
+<h1 id="1、Eureka注册中心"><a href="#1、Eureka注册中心" class="headerlink" title="1、Eureka注册中心"></a>1、Eureka注册中心</h1><p>上面服务的问题，上面的代码的调用是采取硬编码的方式，非常的不合理</p>
+<p><img src="/2022/06/19/SpringCloud/image-20220616130723227.png" alt="image-20220616130723227"></p>
+<p><strong>order-service 如何得知 user-service 实例地址？</strong></p>
+<ul>
+<li>user-service 服务实例启动后，将自己的信息注册到 eureka-server(Eureka服务端)，叫做<strong>服务注册</strong></li>
+<li>eureka-server 保存服务名称到服务实例地址列表的映射关系</li>
+<li>order-service 根据服务名称，拉取实例地址列表，这个叫<strong>服务发现</strong>或服务拉取</li>
+</ul>
+<p><strong>order-service 如何从多个 user-service 实例中选择具体的实例？</strong></p>
+<p>order-service从实例列表中利用<strong>负载均衡算法</strong>选中一个实例地址，向该实例地址发起远程调用</p>
+<p><strong>order-service 如何得知某个 user-service 实例是否依然健康，是不是已经宕机？</strong></p>
+<ul>
+<li>user-service 会<strong>每隔一段时间(默认30秒)向 eureka-server 发起请求</strong>，报告自己状态，称为<strong>心跳</strong></li>
+<li>当超过一定时间没有发送心跳时，eureka-server 会认为微服务实例故障，将该实例从服务列表中剔除</li>
+<li>order-service 拉取服务时，就能将故障实例排除了</li>
+</ul>
+<p><img src="/2022/06/19/SpringCloud/image-20220616130824185.png" alt="image-20220616130824185"></p>
+<h2 id="搭建注册中心-需要重新创建一个微服务"><a href="#搭建注册中心-需要重新创建一个微服务" class="headerlink" title="搭建注册中心(需要重新创建一个微服务)"></a>搭建注册中心(需要重新创建一个微服务)</h2><p><strong>搭建 eureka-server</strong></p>
+<p>引入 SpringCloud 为 eureka 提供的 starter 依赖，注意这里是用 <strong>server</strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>编写启动类</strong></p>
+<p>注意要添加一个 <code>@EnableEurekaServer</code> <strong>注解</strong>，开启 eureka 的<strong>注册中心</strong>功能</p>
+<p><strong>编写配置文件</strong></p>
+<p>编写一个 application.yml 文件，内容如下：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">10086</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">eurekaserver</span></span><br><span class="line"><span class="attr">eureka:</span></span><br><span class="line">  <span class="attr">client:</span></span><br><span class="line">    <span class="comment"># 是否向eureka注册自身服务</span></span><br><span class="line">    <span class="attr">register-with-eureka:</span> <span class="literal">false</span></span><br><span class="line">    <span class="comment">#是否检索服务</span></span><br><span class="line">    <span class="attr">fetch-registry:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">service-url:</span></span><br><span class="line">      <span class="attr">defaultZone:</span> <span class="string">http://127.0.0.1:10086/eureka</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>其中 <code>default-zone</code> 是因为前面配置类开启了注册中心所需要配置的 eureka 的<strong>地址信息</strong>，因为 eureka 本身也是一个微服务，这里也要将自己注册进来，当后面 eureka <strong>集群</strong>时，这里就可以填写多个，使用 “,” 隔开。</p>
+<p>启动完成后，访问 <a target="_blank" rel="noopener" href="http://localhost:10086/">http://localhost:10086/</a></p>
+<h2 id="服务的注册"><a href="#服务的注册" class="headerlink" title="服务的注册"></a>服务的注册</h2><blockquote>
+<p>将 user-service、order-service 都注册到 eureka</p>
+</blockquote>
+<p>引入 SpringCloud 为 eureka 提供的 starter 依赖，注意这里是用 <strong>client</strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在启动类上添加注解：<code>@EnableEurekaClient</code></p>
+<p>在 application.yml 文件，添加下面的配置：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">      <span class="comment">#name：orderservice</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">userservice</span></span><br><span class="line"><span class="attr">eureka:</span></span><br><span class="line">  <span class="attr">client:</span></span><br><span class="line">    <span class="attr">service-url:</span> </span><br><span class="line">      <span class="attr">defaultZone:</span> <span class="string">http:127.0.0.1:10086/eureka</span></span><br></pre></td></tr></table></figure>
+
+<p>3个项目启动后，访问 <a target="_blank" rel="noopener" href="http://localhost:10086/">http://localhost:10086/</a></p>
+<p><a target="_blank" rel="noopener" href="https://cdn.xn2001.com/img/2021/20210901090958.png">
+  </a><img src="/2022/06/19/SpringCloud/image-20220616135112438.png" alt="image-20220616135112438"></p>
+<p>启动多个实例可以通过复制启动键</p>
+<p><img src="/2022/06/19/SpringCloud/image-20220616135158416.png" alt="image-20220616135158416"></p>
+<p><img src="/2022/06/19/SpringCloud/image-20220616135245375.png" alt="image-20220616135245375"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">-Dserver.port=xxxx</span><br></pre></td></tr></table></figure>
+
+<p>这里是替换yml文件中的端口地址</p>
+<h2 id="服务的拉取"><a href="#服务的拉取" class="headerlink" title="服务的拉取"></a>服务的拉取</h2><blockquote>
+<p>在 order-service 中完成服务拉取，然后通过负载均衡挑选一个服务，实现远程调用</p>
+</blockquote>
+<p>下面我们让 orderservice 向 eureka-server 拉取 userservice 的信息，实现服务发现。</p>
+<p>首先给 <code>RestTemplate</code> 这个 Bean 添加一个 <code>@LoadBalanced</code> <strong>注解</strong>，用于开启<strong>负载均衡</strong>。（后面会讲）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="meta">@LoadBalanced</span></span><br><span class="line"><span class="keyword">public</span> RestTemplate <span class="title function_">restTemplate</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">RestTemplate</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改 OrderService 访问的url路径，用<strong>服务名</strong>代替ip、端口：</p>
+<p><img src="/2022/06/19/SpringCloud/image-20220616135442158.png" alt="image-20220616135442158"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">public</span> Order <span class="title function_">queryOrderById</span><span class="params">(Long orderId)</span> &#123;</span><br><span class="line">        <span class="comment">// 1.查询订单</span></span><br><span class="line">        <span class="type">Order</span> <span class="variable">order</span> <span class="operator">=</span> orderMapper.findById(orderId);</span><br><span class="line">        <span class="type">User</span> <span class="variable">u</span> <span class="operator">=</span> restTemplate.getForObject(<span class="string">&quot;http://userservice/user/&quot;</span> + order.getUserId(), User.class);</span><br><span class="line"><span class="comment">//        2.获取到订单里的用户id,并且再次发送请求</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//3、将查询出来的值设置到订单里去</span></span><br><span class="line">        order.setUser(u);</span><br><span class="line">        <span class="comment">// 4.返回</span></span><br><span class="line">        <span class="keyword">return</span> order;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><p> <code>@LoadBalanced</code> 注解，即可实现负载均衡功能，这是什么原理呢？</p>
+<p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220616223027399.png" alt="image-20220616223027399"></p>
+<ul>
+<li><code>@LoadBalanced</code>这个注解代表的意思将来这个RestTemplate发送的请求将会被Ribbon拦截</li>
+</ul>
+<p>负载均衡默认使用了轮训算法，当然我们也可以自定义。</p>
+<p><strong>SpringCloud 底层提供了一个名为 Ribbon 的组件，来实现负载均衡功能。</strong></p>
+<h2 id="负载均衡策略"><a href="#负载均衡策略" class="headerlink" title="负载均衡策略"></a>负载均衡策略</h2><p>负载均衡的规则都定义在 IRule 接口中，而 IRule 有很多不同的实现类：</p>
+<p><img src="https://cdn.xn2001.com/img/2021/20210901091811.png" alt="img"></p>
+<p>不同规则的含义如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>内置负载均衡规则类</strong></th>
+<th align="left"><strong>规则描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">RoundRobinRule</td>
+<td align="left">简单轮询服务列表来选择服务器。它是Ribbon默认的负载均衡规则。</td>
+</tr>
+<tr>
+<td align="left">AvailabilityFilteringRule</td>
+<td align="left">对以下两种服务器进行忽略：（1）在默认情况下，这台服务器如果3次连接失败，这台服务器就会被设置为“短路”状态。短路状态将持续30秒，如果再次连接失败，短路的持续时间就会几何级地增加。 （2）并发数过高的服务器。如果一个服务器的并发连接数过高，配置了AvailabilityFilteringRule 规则的客户端也会将其忽略。并发连接数的上限，可以由客户端设置。</td>
+</tr>
+<tr>
+<td align="left">WeightedResponseTimeRule</td>
+<td align="left">为每一个服务器赋予一个权重值。服务器响应时间越长，这个服务器的权重就越小。这个规则会随机选择服务器，这个权重值会影响服务器的选择。</td>
+</tr>
+<tr>
+<td align="left"><strong>ZoneAvoidanceRule</strong></td>
+<td align="left">以区域可用的服务器为基础进行服务器的选择。使用Zone对服务器进行分类，这个Zone可以理解为一个机房、一个机架等。而后再对Zone内的多个服务做轮询。</td>
+</tr>
+<tr>
+<td align="left">BestAvailableRule</td>
+<td align="left">忽略那些短路的服务器，并选择并发数较低的服务器。</td>
+</tr>
+<tr>
+<td align="left">RandomRule</td>
+<td align="left">随机选择一个可用的服务器。</td>
+</tr>
+<tr>
+<td align="left">RetryRule</td>
+<td align="left">重试机制的选择逻辑</td>
+</tr>
+</tbody></table>
+<h2 id="自定义策略"><a href="#自定义策略" class="headerlink" title="自定义策略"></a>自定义策略</h2><p>通过定义 IRule 实现可以修改负载均衡规则，有两种方式：</p>
+<h3 id="1-代码方式"><a href="#1-代码方式" class="headerlink" title="1 代码方式"></a>1 代码方式</h3><p>在 order-service 中的 OrderApplication 类中，定义一个新的 IRule：</p>
+<p>将负载均衡的规则改为了Random随机</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> IRule <span class="title function_">iRule</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span>  <span class="title class_">RandomRule</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-配置文件方式"><a href="#2-配置文件方式" class="headerlink" title="2 配置文件方式"></a>2 配置文件方式</h3><p>在 order-service 的 application.yml 文件中，添加新的配置也可以修改规则：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">userservice:</span> <span class="comment"># 给需要调用的微服务配置负载均衡规则，orderservice服务去调用userservice服务</span></span><br><span class="line">  <span class="attr">ribbon:</span></span><br><span class="line">    <span class="attr">NFLoadBalancerRuleClassName:</span> <span class="string">com.netflix.loadbalancer.RandomRule</span> <span class="comment"># 负载均衡规则 </span></span><br></pre></td></tr></table></figure>
+
+<h2 id="饥饿加载"><a href="#饥饿加载" class="headerlink" title="饥饿加载"></a>饥饿加载</h2><p>当我们启动 orderservice，第一次访问时，时间消耗会大很多，这是因为 Ribbon 懒加载的机制。</p>
+<p>Ribbon 默认是采用懒加载，即第一次访问时才会去创建 LoadBalanceClient，拉取集群地址，所以请求时间会很长。</p>
+<p>而饥饿加载则会在项目启动时创建 LoadBalanceClient，降低第一次访问的耗时，通过下面配置开启饥饿加载：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">ribbon:</span></span><br><span class="line">  <span class="attr">eager-load:</span></span><br><span class="line">    <span class="attr">enabled:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">clients:</span> <span class="string">userservice</span> <span class="comment"># 项目启动时直接去拉取userservice的集群，多个用&quot;,&quot;隔开</span></span><br></pre></td></tr></table></figure>
+
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">DaiHaojun</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://daihaojun554.github.io/2022/06/19/SpringCloud/">http://daihaojun554.github.io/2022/06/19/SpringCloud/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Spring/">Spring</a><a class="post-meta__tags" href="/tags/springCloud/">springCloud</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2022/06/20/GateWay%E7%BD%91%E5%85%B3/"><i class="fa fa-chevron-left">  </i><span>GateWay网关</span></a></div><div class="next-post pull-right"><a href="/2022/06/17/Docker/"><span>Docker</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2022 By DaiHaojun</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://daihaojun.top">blog</a>!</div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://lib.baomitu.com/animejs/latest/anime.min.js"></script><script src="https://lib.baomitu.com/jquery/latest/jquery.min.js"></script><script src="https://lib.baomitu.com/fancybox/latest/jquery.fancybox.min.js"></script><script src="https://lib.baomitu.com/velocity/latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" data-click="false"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>

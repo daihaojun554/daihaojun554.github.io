@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="vue3"><meta name="keywords" content="框架,vue"><meta name="author" content="DaiHaojun"><meta name="copyright" content="DaiHaojun"><title>vue3 | myblog</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  hexoVersion: '6.1.0'
+} </script><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="myblog" type="application/atom+xml">
+</head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue3"><span class="toc-number">1.</span> <span class="toc-text">Vue3</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E5%90%88api%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">组合api：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#setup%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.1.</span> <span class="toc-text">setup函数:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue2-x%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-number">1.1.2.</span> <span class="toc-text">vue2.x生命周期钩子函数：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A4%E8%AF%86vue3-0%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.3.</span> <span class="toc-text">认识vue3.0生命周期钩子函数</span></a></li></ol></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">DaiHaojun</div><div class="author-info__description text-center">记录学习日常</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">25</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">36</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">myblog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">vue3</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2022-07-24</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><p>文档参考：<a target="_blank" rel="noopener" href="https://zhoushugang.gitee.io/erabbit-client-pc-document">https://zhoushugang.gitee.io/erabbit-client-pc-document</a></p>
+<h1 id="Vue3"><a href="#Vue3" class="headerlink" title="Vue3"></a>Vue3</h1><p>通过vite创建vue3项目</p>
+<p><img src="https://daihaojun.oss-cn-hangzhou.aliyuncs.com/img/image-20220730173906209.png" alt="image-20220730173906209"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm init vite-app [projectName]</span><br></pre></td></tr></table></figure>
+
+<h2 id="组合api："><a href="#组合api：" class="headerlink" title="组合api："></a>组合api：</h2><h3 id="setup函数"><a href="#setup函数" class="headerlink" title="setup函数:"></a><code>setup</code>函数:</h3><ul>
+<li><code>setup</code> 是一个新的组件选项，作为组件中使用组合API的起点。</li>
+<li>从组件生命周期来看，它的执行在组件实例创建之前<code>vue2.x的beforeCreate</code>执行。</li>
+<li>这就意味着在<code>setup</code>函数中 <code>this</code> 还不是组件实例，<code>this</code> 此时是 <code>undefined</code></li>
+<li>在模版中需要使用的数据和函数，需要在 <code>setup</code> 返回。</li>
+</ul>
+<h3 id="vue2-x生命周期钩子函数："><a href="#vue2-x生命周期钩子函数：" class="headerlink" title="vue2.x生命周期钩子函数："></a>vue2.x生命周期钩子函数：</h3><ul>
+<li>beforeCreate</li>
+<li>created</li>
+<li>beforeMount</li>
+<li>mounted</li>
+<li>beforeUpdate</li>
+<li>updated</li>
+<li>beforeDestroy</li>
+<li>destroyed</li>
+</ul>
+<h3 id="认识vue3-0生命周期钩子函数"><a href="#认识vue3-0生命周期钩子函数" class="headerlink" title="认识vue3.0生命周期钩子函数"></a>认识vue3.0生命周期钩子函数</h3><ul>
+<li><code>setup</code> 创建实例前</li>
+<li><code>onBeforeMount</code> 挂载DOM前</li>
+<li><code>onMounted</code> 挂载DOM后</li>
+<li><code>onBeforeUpdate</code> 更新组件前</li>
+<li><code>onUpdated</code> 更新组件后</li>
+<li><code>onBeforeUnmount</code> 卸载销毁前</li>
+<li><code>onUnmounted</code> 卸载销毁后</li>
+</ul>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">DaiHaojun</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://daihaojun554.github.io/2022/07/25/vue3/">http://daihaojun554.github.io/2022/07/25/vue3/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%A1%86%E6%9E%B6/">框架</a><a class="post-meta__tags" href="/tags/vue/">vue</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2022/08/11/crawl-spider/"><i class="fa fa-chevron-left">  </i><span>crawlSpider</span></a></div><div class="next-post pull-right"><a href="/2022/06/30/MQ/"><span>Mq消息队列</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2022 By DaiHaojun</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://daihaojun.top">blog</a>!</div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://lib.baomitu.com/animejs/latest/anime.min.js"></script><script src="https://lib.baomitu.com/jquery/latest/jquery.min.js"></script><script src="https://lib.baomitu.com/fancybox/latest/jquery.fancybox.min.js"></script><script src="https://lib.baomitu.com/velocity/latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" data-click="false"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>
